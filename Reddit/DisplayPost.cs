@@ -12,8 +12,8 @@ namespace Reddit
 {
     public partial class DisplayPost : Panel
     {
-        private bool _isUpvoted = false;
-        private bool _isDownvoted = false;
+        private bool _isUpvoted;
+        private bool _isDownvoted;
 
         public DisplayPost(Post post)
         {
@@ -21,6 +21,7 @@ namespace Reddit
 
             // Set Control Locations
             Upvote_Button.Location = new Point(0, 0);
+            Score_Text_Box.Location = new Point(0, 30);
             Downvote_Button.Location = new Point(0, 50);
             Post_Info_Text_Box.Location = new Point(75, 0);
             Title_Text_Box.Location = new Point(75, 25);
@@ -29,6 +30,10 @@ namespace Reddit
             // Add our up vote and down vote buttons
             Controls.Add(Upvote_Button);
             Controls.Add(Downvote_Button);
+
+            // Set the score text and add the control
+            Score_Text_Box.Text = post.Score.ToString();
+            Controls.Add(Score_Text_Box);
 
             // Set the posted info text and add the control
             var timeSpan = DateTime.Now.Subtract(post.timeStamp);

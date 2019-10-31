@@ -32,6 +32,7 @@
             this.Title_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Downvote_Button = new System.Windows.Forms.Button();
             this.Upvote_Button = new System.Windows.Forms.Button();
+            this.Score_Text_Box = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // Post_Info_Text_Box
@@ -88,6 +89,17 @@
             this.Upvote_Button.MouseLeave += new System.EventHandler(this.Upvote_Button_MouseLeave);
             this.Upvote_Button.MouseHover += new System.EventHandler(this.Upvote_Button_MouseHover);
             // 
+            // Score_Text_Box
+            // 
+            this.Score_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Score_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Score_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Score_Text_Box.Location = new System.Drawing.Point(0, 0);
+            this.Score_Text_Box.Name = "Score_Text_Box";
+            this.Score_Text_Box.Size = new System.Drawing.Size(50, 50);
+            this.Score_Text_Box.TabIndex = 0;
+            this.Score_Text_Box.Text = "";
+            // 
             // DisplayPost
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Button Downvote_Button;
         private System.Windows.Forms.RichTextBox Post_Info_Text_Box;
         private System.Windows.Forms.RichTextBox Title_Text_Box;
+        private System.Windows.Forms.RichTextBox Score_Text_Box;
     }
 }
