@@ -41,7 +41,6 @@
             // 
             // Reddit_Picture_Box
             // 
-            this.Reddit_Picture_Box.Image = global::Reddit.Properties.Resources.logo;
             this.Reddit_Picture_Box.ImageLocation = "Images/logo.png";
             this.Reddit_Picture_Box.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reddit_Picture_Box.InitialImage")));
             this.Reddit_Picture_Box.Location = new System.Drawing.Point(6, 10);
@@ -111,6 +110,7 @@
             this.ClientSize = new System.Drawing.Size(991, 636);
             this.Controls.Add(this.Content_Panel);
             this.Controls.Add(this.Navbar_Group_Box);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Reddit";
             ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).EndInit();
