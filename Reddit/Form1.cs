@@ -234,9 +234,6 @@ namespace Reddit
                 if (_selectedSubreddit != null) _collectivePosts = _selectedSubreddit.subPosts;
             }
 
-            //_selectedSubreddit = (Subreddit) Subreddits_Combo_Box.SelectedItem;
-            //var posts = _selectedSubreddit.subPosts;
-
             // Remove previous controls and add new ones
             int[] position = {0, 50};
             Content_Panel.Controls.Clear();
@@ -250,15 +247,20 @@ namespace Reddit
                 Content_Panel.Controls.Add(currentPostControl);
                 position[1] += 250;
             }
-            
+        }
 
-            //foreach (var post in _selectedSubreddit.subPosts)
-            //{
-            //    // Create a new DisplayPost Object
-            //    var currentPostControl = new DisplayPost();
+        private void Login_Button_Click(object sender, EventArgs e)
+        {
+            // TODO When clicked, a new login form opens
+        }
 
-            //    Content_Panel.Controls.Add(currentPostControl);
-            //}
+        private void Search_Text_Box_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) Keys.Enter)
+            {
+                e.Handled = true;
+                // TODO Search functionality
+            }
         }
     }
 }

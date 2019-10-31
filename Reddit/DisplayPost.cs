@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.XPath;
 
 namespace Reddit
 {
@@ -25,11 +26,28 @@ namespace Reddit
             Downvote_Button.Location = new Point(0, 50);
             Post_Info_Text_Box.Location = new Point(75, 0);
             Title_Text_Box.Location = new Point(75, 25);
-            
+            Comments_Text_Box.Location = new Point(50, 150);
+            Comments_Picture_Box.Location = new Point(30, 145);
+
+            // Set all Text Boxes to readonly
+            Score_Text_Box.ReadOnly = true;
+            Post_Info_Text_Box.ReadOnly = true;
+            Title_Text_Box.ReadOnly = true;
 
             // Add our up vote and down vote buttons
             Controls.Add(Upvote_Button);
             Controls.Add(Downvote_Button);
+
+            // Add our comments "button" and icon
+            var commentCount = 0;
+            foreach (var comment in post.postComments)
+            {
+                commentCount += CommentCount(comment);
+            }
+
+            Comments_Text_Box.Text = $"{commentCount} Comments";
+            Controls.Add(Comments_Text_Box);
+            Controls.Add(Comments_Picture_Box);
 
             // Set the score text and add the control
             Score_Text_Box.Text = post.Score.ToString();
@@ -59,6 +77,23 @@ namespace Reddit
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        /// <summary>
+        ///     Recursive helper function to add comments
+        /// </summary>
+        /// <param name="parent">Parent comment</param>
+        /// <param name="commentToAdd">Comment to be added to parent</param>
+        /// <returns></returns>
+        private static int CommentCount(Comment parent)
+        {
+            // When there's still replies
+            if (parent.commentReplies.Count > 0)
+                foreach (var currentComment in parent.commentReplies)
+                    return 1 + CommentCount(parent.commentReplies.First());
+
+            // Base case
+            return 0;
         }
 
 
@@ -118,6 +153,11 @@ namespace Reddit
                 _isDownvoted = false;
                 Downvote_Button.Image = Properties.Resources.downVote_grey;
             }
+        }
+
+        private void DisplayPost_Click(object sender, EventArgs e)
+        {
+            // TODO When clicked, post will open another form
         }
     }
 }

@@ -29,25 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Reddit_Picture_Box = new System.Windows.Forms.PictureBox();
             this.Search_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Subreddits_Combo_Box = new System.Windows.Forms.ComboBox();
             this.Login_Button = new System.Windows.Forms.Button();
             this.Content_Panel = new System.Windows.Forms.Panel();
             this.Navbar_Group_Box = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).BeginInit();
+            this.Reddit_Picture_Box = new System.Windows.Forms.PictureBox();
             this.Navbar_Group_Box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Reddit_Picture_Box
-            // 
-            this.Reddit_Picture_Box.ImageLocation = "Images/logo.png";
-            this.Reddit_Picture_Box.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reddit_Picture_Box.InitialImage")));
-            this.Reddit_Picture_Box.Location = new System.Drawing.Point(6, 10);
-            this.Reddit_Picture_Box.Name = "Reddit_Picture_Box";
-            this.Reddit_Picture_Box.Size = new System.Drawing.Size(110, 43);
-            this.Reddit_Picture_Box.TabIndex = 0;
-            this.Reddit_Picture_Box.TabStop = false;
             // 
             // Search_Text_Box
             // 
@@ -55,11 +45,14 @@
             this.Search_Text_Box.ForeColor = System.Drawing.Color.White;
             this.Search_Text_Box.Location = new System.Drawing.Point(334, 26);
             this.Search_Text_Box.Name = "Search_Text_Box";
+            this.Search_Text_Box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.Search_Text_Box.Size = new System.Drawing.Size(333, 21);
             this.Search_Text_Box.TabIndex = 1;
+            this.Search_Text_Box.TabStop = false;
             this.Search_Text_Box.Text = "Search Reddit";
             this.Search_Text_Box.WordWrap = false;
             this.Search_Text_Box.Enter += new System.EventHandler(this.Search_Text_Box_Enter);
+            this.Search_Text_Box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Search_Text_Box_KeyPress);
             this.Search_Text_Box.Leave += new System.EventHandler(this.Search_Text_Box_Leave);
             // 
             // Subreddits_Combo_Box
@@ -81,6 +74,7 @@
             this.Login_Button.TabIndex = 3;
             this.Login_Button.Text = "Login";
             this.Login_Button.UseVisualStyleBackColor = true;
+            this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
             // 
             // Content_Panel
             // 
@@ -103,6 +97,16 @@
             this.Navbar_Group_Box.TabIndex = 0;
             this.Navbar_Group_Box.TabStop = false;
             // 
+            // Reddit_Picture_Box
+            // 
+            this.Reddit_Picture_Box.ImageLocation = "Images/logo.png";
+            this.Reddit_Picture_Box.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reddit_Picture_Box.InitialImage")));
+            this.Reddit_Picture_Box.Location = new System.Drawing.Point(6, 10);
+            this.Reddit_Picture_Box.Name = "Reddit_Picture_Box";
+            this.Reddit_Picture_Box.Size = new System.Drawing.Size(110, 43);
+            this.Reddit_Picture_Box.TabIndex = 0;
+            this.Reddit_Picture_Box.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,8 +118,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Reddit";
-            ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).EndInit();
             this.Navbar_Group_Box.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).EndInit();
             this.ResumeLayout(false);
 
         }

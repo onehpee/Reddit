@@ -30,9 +30,12 @@
         {
             this.Post_Info_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Title_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Score_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Comments_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Downvote_Button = new System.Windows.Forms.Button();
             this.Upvote_Button = new System.Windows.Forms.Button();
-            this.Score_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Comments_Picture_Box = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Comments_Picture_Box)).BeginInit();
             this.SuspendLayout();
             // 
             // Post_Info_Text_Box
@@ -53,9 +56,31 @@
             this.Title_Text_Box.ForeColor = System.Drawing.Color.White;
             this.Title_Text_Box.Location = new System.Drawing.Point(0, 0);
             this.Title_Text_Box.Name = "Title_Text_Box";
-            this.Title_Text_Box.Size = new System.Drawing.Size(300, 23);
+            this.Title_Text_Box.Size = new System.Drawing.Size(300, 100);
             this.Title_Text_Box.TabIndex = 0;
             this.Title_Text_Box.Text = "";
+            // 
+            // Score_Text_Box
+            // 
+            this.Score_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Score_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Score_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Score_Text_Box.Location = new System.Drawing.Point(0, 0);
+            this.Score_Text_Box.Name = "Score_Text_Box";
+            this.Score_Text_Box.Size = new System.Drawing.Size(50, 50);
+            this.Score_Text_Box.TabIndex = 0;
+            this.Score_Text_Box.Text = "";
+            // 
+            // Comments_Text_Box
+            // 
+            this.Comments_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Comments_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Comments_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Comments_Text_Box.Location = new System.Drawing.Point(0, 0);
+            this.Comments_Text_Box.Name = "Comments_Text_Box";
+            this.Comments_Text_Box.Size = new System.Drawing.Size(70, 30);
+            this.Comments_Text_Box.TabIndex = 0;
+            this.Comments_Text_Box.Text = "";
             // 
             // Downvote_Button
             // 
@@ -89,22 +114,23 @@
             this.Upvote_Button.MouseLeave += new System.EventHandler(this.Upvote_Button_MouseLeave);
             this.Upvote_Button.MouseHover += new System.EventHandler(this.Upvote_Button_MouseHover);
             // 
-            // Score_Text_Box
+            // Comments_Picture_Box
             // 
-            this.Score_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.Score_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Score_Text_Box.ForeColor = System.Drawing.Color.White;
-            this.Score_Text_Box.Location = new System.Drawing.Point(0, 0);
-            this.Score_Text_Box.Name = "Score_Text_Box";
-            this.Score_Text_Box.Size = new System.Drawing.Size(50, 50);
-            this.Score_Text_Box.TabIndex = 0;
-            this.Score_Text_Box.Text = "";
+            this.Comments_Picture_Box.Image = global::Reddit.Properties.Resources.comment_icon;
+            this.Comments_Picture_Box.InitialImage = global::Reddit.Properties.Resources.comment_icon;
+            this.Comments_Picture_Box.Location = new System.Drawing.Point(0, 0);
+            this.Comments_Picture_Box.Name = "Comments_Picture_Box";
+            this.Comments_Picture_Box.Size = new System.Drawing.Size(23, 21);
+            this.Comments_Picture_Box.TabIndex = 0;
+            this.Comments_Picture_Box.TabStop = false;
             // 
             // DisplayPost
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Size = new System.Drawing.Size(350, 175);
+            this.Click += new System.EventHandler(this.DisplayPost_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.Comments_Picture_Box)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,5 +142,7 @@
         private System.Windows.Forms.RichTextBox Post_Info_Text_Box;
         private System.Windows.Forms.RichTextBox Title_Text_Box;
         private System.Windows.Forms.RichTextBox Score_Text_Box;
+        private System.Windows.Forms.RichTextBox Comments_Text_Box;
+        private System.Windows.Forms.PictureBox Comments_Picture_Box;
     }
 }
