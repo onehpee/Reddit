@@ -41,7 +41,7 @@
             // 
             // Reddit_Picture_Box
             // 
-            this.Reddit_Picture_Box.Image = ((System.Drawing.Image)(resources.GetObject("Reddit_Picture_Box.Image")));
+            this.Reddit_Picture_Box.Image = global::Reddit.Properties.Resources.logo;
             this.Reddit_Picture_Box.ImageLocation = "Images/logo.png";
             this.Reddit_Picture_Box.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reddit_Picture_Box.InitialImage")));
             this.Reddit_Picture_Box.Location = new System.Drawing.Point(6, 10);
@@ -52,17 +52,23 @@
             // 
             // Search_Text_Box
             // 
-            this.Search_Text_Box.Location = new System.Drawing.Point(334, 20);
+            this.Search_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.Search_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Search_Text_Box.Location = new System.Drawing.Point(334, 26);
             this.Search_Text_Box.Name = "Search_Text_Box";
-            this.Search_Text_Box.Size = new System.Drawing.Size(333, 33);
+            this.Search_Text_Box.Size = new System.Drawing.Size(333, 21);
             this.Search_Text_Box.TabIndex = 1;
-            this.Search_Text_Box.Text = "";
+            this.Search_Text_Box.Text = "Search Reddit";
             this.Search_Text_Box.WordWrap = false;
+            this.Search_Text_Box.Enter += new System.EventHandler(this.Search_Text_Box_Enter);
+            this.Search_Text_Box.Leave += new System.EventHandler(this.Search_Text_Box_Leave);
             // 
             // Subreddits_Combo_Box
             // 
+            this.Subreddits_Combo_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Subreddits_Combo_Box.ForeColor = System.Drawing.Color.White;
             this.Subreddits_Combo_Box.FormattingEnabled = true;
-            this.Subreddits_Combo_Box.Location = new System.Drawing.Point(122, 32);
+            this.Subreddits_Combo_Box.Location = new System.Drawing.Point(122, 26);
             this.Subreddits_Combo_Box.Name = "Subreddits_Combo_Box";
             this.Subreddits_Combo_Box.Size = new System.Drawing.Size(206, 21);
             this.Subreddits_Combo_Box.TabIndex = 2;
