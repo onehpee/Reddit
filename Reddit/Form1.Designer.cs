@@ -71,6 +71,7 @@
             this.Subreddits_Combo_Box.Name = "Subreddits_Combo_Box";
             this.Subreddits_Combo_Box.Size = new System.Drawing.Size(206, 21);
             this.Subreddits_Combo_Box.TabIndex = 2;
+            this.Subreddits_Combo_Box.SelectionChangeCommitted += new System.EventHandler(this.Subreddits_Combo_Box_SelectionChangeCommitted);
             // 
             // Login_Button
             // 
@@ -84,9 +85,9 @@
             // Content_Panel
             // 
             this.Content_Panel.AutoScroll = true;
-            this.Content_Panel.Location = new System.Drawing.Point(13, 76);
+            this.Content_Panel.Location = new System.Drawing.Point(334, 59);
             this.Content_Panel.Name = "Content_Panel";
-            this.Content_Panel.Size = new System.Drawing.Size(966, 548);
+            this.Content_Panel.Size = new System.Drawing.Size(622, 565);
             this.Content_Panel.TabIndex = 4;
             // 
             // Navbar_Group_Box
