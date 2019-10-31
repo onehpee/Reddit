@@ -209,5 +209,58 @@ namespace Reddit
             if (string.IsNullOrWhiteSpace(Search_Text_Box.Text))
                 Search_Text_Box.Text = "Search Reddit";
         }
+
+        private void Subreddits_Combo_Box_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // Represents /r/all if all is selected
+            var allPosts = new SortedSet<Post>();
+
+            if (Subreddits_Combo_Box.SelectedItem == null) return;
+            if (Subreddits_Combo_Box.SelectedItem.ToString() == "all")
+            {
+                foreach (var subredditSubPost in _subreddits.SelectMany(subreddit => subreddit.subPosts))
+                    allPosts.Add(subredditSubPost);
+                
+                // Set this to default since default is our all
+                _selectedSubreddit = new Subreddit();
+
+                // Assign our container to the member
+                _collectivePosts = allPosts;
+            }
+            else
+            {
+                _selectedSubreddit = (Subreddit)Subreddits_Combo_Box.SelectedItem;
+
+                if (_selectedSubreddit != null) _collectivePosts = _selectedSubreddit.subPosts;
+            }
+
+            // Remove previous controls and add new ones
+            int[] position = {0, 50};
+            Content_Panel.Controls.Clear();
+            foreach (var post in _collectivePosts)
+            {
+                // Create a new DisplayPost Object
+                var currentPostControl = new DisplayPost(post)
+                {
+                    Location = new Point(position[0], position[1])
+                };
+                Content_Panel.Controls.Add(currentPostControl);
+                position[1] += 250;
+            }
+        }
+
+        private void Login_Button_Click(object sender, EventArgs e)
+        {
+            // TODO When clicked, a new login form opens
+        }
+
+        private void Search_Text_Box_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) Keys.Enter)
+            {
+                e.Handled = true;
+                // TODO Search functionality
+            }
+        }
     }
 }
