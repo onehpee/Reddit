@@ -98,9 +98,14 @@
     <Content Include="comments.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\comment_icon.png" />
+    <Content Include="Images\downVote_blue.png" />
+    <Content Include="Images\downVote_grey.png" />
     <Content Include="Images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\upVote_grey.png" />
+    <Content Include="Images\upVote_red.png" />
     <Content Include="password.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

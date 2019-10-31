@@ -28,29 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Upvote_Button = new System.Windows.Forms.Button();
-            this.Downvote_Button = new System.Windows.Forms.Button();
             this.Post_Info_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Title_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Downvote_Button = new System.Windows.Forms.Button();
+            this.Upvote_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Upvote_Button
-            // 
-            this.Upvote_Button.Location = new System.Drawing.Point(0, 0);
-            this.Upvote_Button.Name = "Upvote_Button";
-            this.Upvote_Button.Size = new System.Drawing.Size(75, 23);
-            this.Upvote_Button.TabIndex = 0;
-            this.Upvote_Button.Text = "Upvote";
-            this.Upvote_Button.UseVisualStyleBackColor = true;
-            // 
-            // Downvote_Button
-            // 
-            this.Downvote_Button.Location = new System.Drawing.Point(0, 0);
-            this.Downvote_Button.Name = "Downvote_Button";
-            this.Downvote_Button.Size = new System.Drawing.Size(75, 23);
-            this.Downvote_Button.TabIndex = 0;
-            this.Downvote_Button.Text = "Downvote";
-            this.Downvote_Button.UseVisualStyleBackColor = true;
             // 
             // Post_Info_Text_Box
             // 
@@ -73,6 +55,38 @@
             this.Title_Text_Box.Size = new System.Drawing.Size(300, 23);
             this.Title_Text_Box.TabIndex = 0;
             this.Title_Text_Box.Text = "";
+            // 
+            // Downvote_Button
+            // 
+            this.Downvote_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Downvote_Button.FlatAppearance.BorderSize = 0;
+            this.Downvote_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Downvote_Button.Image = global::Reddit.Properties.Resources.downVote_grey;
+            this.Downvote_Button.Location = new System.Drawing.Point(0, 0);
+            this.Downvote_Button.Name = "Downvote_Button";
+            this.Downvote_Button.Size = new System.Drawing.Size(21, 21);
+            this.Downvote_Button.TabIndex = 0;
+            this.Downvote_Button.TabStop = false;
+            this.Downvote_Button.UseVisualStyleBackColor = false;
+            this.Downvote_Button.Click += new System.EventHandler(this.Downvote_Button_Click);
+            this.Downvote_Button.MouseLeave += new System.EventHandler(this.Downvote_Button_MouseLeave);
+            this.Downvote_Button.MouseHover += new System.EventHandler(this.Downvote_Button_MouseHover);
+            // 
+            // Upvote_Button
+            // 
+            this.Upvote_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Upvote_Button.FlatAppearance.BorderSize = 0;
+            this.Upvote_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Upvote_Button.Image = global::Reddit.Properties.Resources.upVote_grey;
+            this.Upvote_Button.Location = new System.Drawing.Point(0, 0);
+            this.Upvote_Button.Name = "Upvote_Button";
+            this.Upvote_Button.Size = new System.Drawing.Size(21, 21);
+            this.Upvote_Button.TabIndex = 0;
+            this.Upvote_Button.TabStop = false;
+            this.Upvote_Button.UseVisualStyleBackColor = false;
+            this.Upvote_Button.Click += new System.EventHandler(this.Upvote_Button_Click);
+            this.Upvote_Button.MouseLeave += new System.EventHandler(this.Upvote_Button_MouseLeave);
+            this.Upvote_Button.MouseHover += new System.EventHandler(this.Upvote_Button_MouseHover);
             // 
             // DisplayPost
             // 
