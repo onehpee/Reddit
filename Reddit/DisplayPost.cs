@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using System.Xml.XPath;
 
 namespace Reddit
@@ -15,11 +16,12 @@ namespace Reddit
     {
         private bool _isUpvoted;
         private bool _isDownvoted;
+        public readonly Post PanelPost;
 
         public DisplayPost(Post post)
         {
             InitializeComponent();
-
+            PanelPost = post;
             // Set Control Locations
             Upvote_Button.Location = new Point(0, 0);
             Score_Text_Box.Location = new Point(0, 30);
@@ -157,7 +159,9 @@ namespace Reddit
 
         private void DisplayPost_Click(object sender, EventArgs e)
         {
-            // TODO When clicked, post will open another form
+            var expandedPostForm = new ViewPostForm();
+            expandedPostForm.ShowDialog();
+            expandedPostForm.Dispose();
         }
     }
 }
