@@ -27,7 +27,18 @@ namespace Reddit
             if (true)
             {
                 // Show authenticated user
-
+                // Display comments
+                int[] position = {0, 0};
+                foreach (var comment in post.postComments)
+                {
+                    // Create a new DisplayPost Object
+                    var currentCommentControl = new DisplayComment(comment)
+                    {
+                        Location = new Point()
+                    };
+                    Content_Panel.Controls.Add(currentCommentControl);
+                    position[1] += 100;
+                }
             }
             else
             {

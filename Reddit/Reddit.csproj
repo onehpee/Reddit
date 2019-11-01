@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
+    <Compile Include="DisplayComment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DisplayComment.Designer.cs">
+      <DependentUpon>DisplayComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayPost.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="ViewPostForm.Designer.cs">
       <DependentUpon>ViewPostForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DisplayComment.resx">
+      <DependentUpon>DisplayComment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayPost.resx">
       <DependentUpon>DisplayPost.cs</DependentUpon>
     </EmbeddedResource>
