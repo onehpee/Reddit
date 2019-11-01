@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reddit
@@ -220,7 +217,7 @@ namespace Reddit
             {
                 foreach (var subredditSubPost in _subreddits.SelectMany(subreddit => subreddit.subPosts))
                     allPosts.Add(subredditSubPost);
-                
+
                 // Set this to default since default is our all
                 _selectedSubreddit = new Subreddit();
 
@@ -235,7 +232,7 @@ namespace Reddit
             }
 
             // Remove previous controls and add new ones
-            int[] position = {0, 50};
+            int[] position = { 0, 50 };
             Content_Panel.Controls.Clear();
             foreach (var post in _collectivePosts)
             {
@@ -252,15 +249,60 @@ namespace Reddit
         private void Login_Button_Click(object sender, EventArgs e)
         {
             // TODO When clicked, a new login form opens
-        }
 
-        private void Search_Text_Box_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char) Keys.Enter)
+            //    protected override void OnLoad(EventArgs e)
+            //{
+            using (Log_In_Form f2 = new Log_In_Form())
             {
-                e.Handled = true;
-                // TODO Search functionality
+                if (f2.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (var user in _users)
+                    {
+                        var _users = new SortedSet<User>();
+
+                        foreach (var name in _users)
+                            // Use linq to get a set of all user posts
+                            _users.FirstOrDefault(x => Name  == _selectedUser.Name );
+
+                        if (f2.LogInFormUser == user.Name && f2.LogInFormPass == user.Password)
+                        {
+                            Login_Button.Text = $"{f2.LogInFormUser} {user._postScore} {user.TotalScore} ";
+                            _authenticatedUser = _selectedUser;
+                        }
+                    }
+                }
+                else
+                {
+                    f2.Close();
+                }
+            }
+          //  base.OnLoad(e);
+        }
+    
+
+    private void Search_Text_Box_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        // Content_Panel.Controls.Clear();
+        if (e.KeyChar == (char)Keys.Enter)
+        {
+            e.Handled = true;
+            // TODO Search functionality
+
+            var FilteredSet = new SortedSet<Post>();
+
+            if (Subreddits_Combo_Box.SelectedItem.ToString() == "all")
+            {
+                foreach (var subredditSubPost in _subreddits.SelectMany(subreddit => subreddit.subPosts.Where(post => post.postContent.Contains(Search_Text_Box.Text) || post.title.Contains(Search_Text_Box.Text))))
+                    FilteredSet.Add(subredditSubPost);
+
+                // Set this to default since default is our all
+                _selectedSubreddit = new Subreddit();
+
+                // Assign our container to the member
+                _collectivePosts = FilteredSet;
+
+                //  Content_Panel.Text += $@"{FilteredSet}{Environment.NewLine}";
             }
         }
     }
-}
+} }

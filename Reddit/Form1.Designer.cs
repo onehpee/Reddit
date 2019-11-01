@@ -83,6 +83,7 @@
             this.Content_Panel.Name = "Content_Panel";
             this.Content_Panel.Size = new System.Drawing.Size(622, 565);
             this.Content_Panel.TabIndex = 4;
+  
             // 
             // Navbar_Group_Box
             // 
