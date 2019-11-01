@@ -22,6 +22,19 @@ namespace Reddit
                 Location = new Point(0, 0)
             };
             Controls.Add(currentPostControl);
+
+            // Display when Authenticated
+            if (true)
+            {
+                // Show authenticated user
+
+            }
+            else
+            {
+                User_Info_Comment_Box.Hide();
+                Comments_Text_Box.Hide();
+                Submit_Comment_Button.Hide();
+            }
         }
     }
 }
