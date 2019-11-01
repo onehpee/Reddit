@@ -35,6 +35,7 @@
             this.Downvote_Button = new System.Windows.Forms.Button();
             this.Upvote_Button = new System.Windows.Forms.Button();
             this.Comments_Picture_Box = new System.Windows.Forms.PictureBox();
+            this.Content_Text_Box = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Comments_Picture_Box)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.Title_Text_Box.ForeColor = System.Drawing.Color.White;
             this.Title_Text_Box.Location = new System.Drawing.Point(0, 0);
             this.Title_Text_Box.Name = "Title_Text_Box";
-            this.Title_Text_Box.Size = new System.Drawing.Size(300, 100);
+            this.Title_Text_Box.Size = new System.Drawing.Size(300, 35);
             this.Title_Text_Box.TabIndex = 0;
             this.Title_Text_Box.Text = "";
             // 
@@ -124,6 +125,17 @@
             this.Comments_Picture_Box.TabIndex = 0;
             this.Comments_Picture_Box.TabStop = false;
             // 
+            // Content_Text_Box
+            // 
+            this.Content_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Content_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Content_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Content_Text_Box.Location = new System.Drawing.Point(0, 0);
+            this.Content_Text_Box.Name = "Content_Text_Box";
+            this.Content_Text_Box.Size = new System.Drawing.Size(250, 50);
+            this.Content_Text_Box.TabIndex = 0;
+            this.Content_Text_Box.Text = "";
+            // 
             // DisplayPost
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
@@ -144,5 +156,6 @@
         private System.Windows.Forms.RichTextBox Score_Text_Box;
         private System.Windows.Forms.RichTextBox Comments_Text_Box;
         private System.Windows.Forms.PictureBox Comments_Picture_Box;
+        private System.Windows.Forms.RichTextBox Content_Text_Box;
     }
 }

@@ -12,9 +12,16 @@ namespace Reddit
 {
     public partial class ViewPostForm : Form
     {
-        public ViewPostForm()
+        private Post _post;
+        public ViewPostForm(Post post)
         {
             InitializeComponent();
+            // Create a new DisplayPost Object
+            var currentPostControl = new DisplayPost(post, true)
+            {
+                Location = new Point(0, 0)
+            };
+            Controls.Add(currentPostControl);
         }
     }
 }

@@ -16,12 +16,12 @@ namespace Reddit
     {
         private bool _isUpvoted;
         private bool _isDownvoted;
-        public readonly Post PanelPost;
+        private Post _panelPost;
 
-        public DisplayPost(Post post)
+        public DisplayPost(Post post, bool displayContent)
         {
             InitializeComponent();
-            PanelPost = post;
+            _panelPost = post;
             // Set Control Locations
             Upvote_Button.Location = new Point(0, 0);
             Score_Text_Box.Location = new Point(0, 30);
@@ -30,11 +30,13 @@ namespace Reddit
             Title_Text_Box.Location = new Point(75, 25);
             Comments_Text_Box.Location = new Point(50, 150);
             Comments_Picture_Box.Location = new Point(30, 145);
+            Content_Text_Box.Location = new Point(75, 75);
 
             // Set all Text Boxes to readonly
             Score_Text_Box.ReadOnly = true;
             Post_Info_Text_Box.ReadOnly = true;
             Title_Text_Box.ReadOnly = true;
+            Content_Text_Box.ReadOnly = true;
 
             // Add our up vote and down vote buttons
             Controls.Add(Upvote_Button);
@@ -74,6 +76,12 @@ namespace Reddit
             // Set the Title text and add the control
             Title_Text_Box.Text = post.Title;
             Controls.Add(Title_Text_Box);
+
+            // Set the Content text and add the control Defaulted to hidden control
+            Content_Text_Box.Text = post.postContent;
+            Controls.Add(Content_Text_Box);
+            if (!displayContent)
+                Content_Text_Box.Hide();
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -159,9 +167,12 @@ namespace Reddit
 
         private void DisplayPost_Click(object sender, EventArgs e)
         {
-            var expandedPostForm = new ViewPostForm();
-            expandedPostForm.ShowDialog();
-            expandedPostForm.Dispose();
+            if (!Content_Text_Box.Visible)
+            {
+                var expandedPostForm = new ViewPostForm(_panelPost);
+                expandedPostForm.ShowDialog();
+                expandedPostForm.Dispose();
+            }
         }
     }
 }
