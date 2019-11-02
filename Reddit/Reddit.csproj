@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
+    <Compile Include="DisplayReplyTo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DisplayReplyTo.Designer.cs">
+      <DependentUpon>DisplayReplyTo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayComment.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="ViewPostForm.Designer.cs">
       <DependentUpon>ViewPostForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DisplayReplyTo.resx">
+      <DependentUpon>DisplayReplyTo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayComment.resx">
       <DependentUpon>DisplayComment.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +129,9 @@
     <Content Include="Images\downVote_blue.png" />
     <Content Include="Images\downVote_grey.png" />
     <Content Include="Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\reply_icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\upVote_grey.png" />

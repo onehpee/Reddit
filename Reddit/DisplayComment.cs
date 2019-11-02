@@ -32,6 +32,7 @@ namespace Reddit
             Comments_Text_Box.Location = new Point(50, 150);
             Comments_Picture_Box.Location = new Point(30, 145);
             Content_Text_Box.Location = new Point(75, 75);
+            Reply_Picture_Box.Location = new Point(180, 145);
 
             // Set all Text Boxes to readonly
             Score_Text_Box.ReadOnly = true;
@@ -81,6 +82,9 @@ namespace Reddit
             // Set the Content text and add the control Defaulted to hidden control
             Content_Text_Box.Text = comment.Content;
             Controls.Add(Content_Text_Box);
+
+            // Add the Reply picture box control
+            Controls.Add(Reply_Picture_Box);
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -162,6 +166,17 @@ namespace Reddit
                 _isDownvoted = false;
                 Downvote_Button.Image = Properties.Resources.downVote_grey;
             }
+        }
+
+        private void Reply_Picture_Box_Click(object sender, EventArgs e)
+        {
+            // Create a new DisplayPost Object
+            var currentCommentControl = new DisplayReplyTo(_panelComment)
+            {
+                Location = new Point(Location.X, Location.Y+200)
+            };
+            Controls.Add(currentCommentControl);
+            // TODO: Adjust all other comment positions when we add this
         }
     }
 }
