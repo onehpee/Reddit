@@ -12,16 +12,17 @@ using System.Xml.XPath;
 
 namespace Reddit
 {
-    public partial class DisplayPost : Panel
+    public partial class DisplayComment : Panel
     {
         private bool _isUpvoted;
         private bool _isDownvoted;
-        private Post _panelPost;
+        private Comment _panelComment;
 
-        public DisplayPost(Post post, bool displayContent)
+        public DisplayComment(Comment comment)
         {
             InitializeComponent();
-            _panelPost = post;
+            _panelComment = comment;
+
             // Set Control Locations
             Upvote_Button.Location = new Point(0, 0);
             Score_Text_Box.Location = new Point(0, 30);
@@ -31,6 +32,7 @@ namespace Reddit
             Comments_Text_Box.Location = new Point(50, 150);
             Comments_Picture_Box.Location = new Point(30, 145);
             Content_Text_Box.Location = new Point(75, 75);
+            Reply_Picture_Box.Location = new Point(180, 145);
 
             // Set all Text Boxes to readonly
             Score_Text_Box.ReadOnly = true;
@@ -44,9 +46,9 @@ namespace Reddit
 
             // Add our comments "button" and icon
             var commentCount = 0;
-            foreach (var comment in post.postComments)
+            foreach (var reply in comment.commentReplies)
             {
-                commentCount += CommentCount(comment);
+                commentCount += CommentCount(reply);
             }
 
             Comments_Text_Box.Text = $"{commentCount} Comments";
@@ -54,11 +56,11 @@ namespace Reddit
             Controls.Add(Comments_Picture_Box);
 
             // Set the score text and add the control
-            Score_Text_Box.Text = post.Score.ToString();
+            Score_Text_Box.Text = comment.Score.ToString();
             Controls.Add(Score_Text_Box);
 
             // Set the posted info text and add the control
-            var timeSpan = DateTime.Now.Subtract(post.timeStamp);
+            var timeSpan = DateTime.Now.Subtract(comment.timeStamp);
 
             // Assign time since posted
             var timeSince = "";
@@ -70,18 +72,19 @@ namespace Reddit
                 timeSince = $"{(int) timeSpan.TotalDays} days ago";
 
             // Set post info text and add the control
-            Post_Info_Text_Box.Text = $"{"/r/all"} * Posted by {post.authorID.ToString()} {timeSince}";
+            Post_Info_Text_Box.Text = $"Commented by {comment.authorID.ToString()} {timeSince}";
             Controls.Add(Post_Info_Text_Box);
 
             // Set the Title text and add the control
-            Title_Text_Box.Text = post.Title;
+            Title_Text_Box.Text = comment.authorID.ToString();
             Controls.Add(Title_Text_Box);
 
             // Set the Content text and add the control Defaulted to hidden control
-            Content_Text_Box.Text = post.postContent;
+            Content_Text_Box.Text = comment.Content;
             Controls.Add(Content_Text_Box);
-            if (!displayContent)
-                Content_Text_Box.Hide();
+
+            // Add the Reply picture box control
+            Controls.Add(Reply_Picture_Box);
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -165,14 +168,15 @@ namespace Reddit
             }
         }
 
-        private void DisplayPost_Click(object sender, EventArgs e)
+        private void Reply_Picture_Box_Click(object sender, EventArgs e)
         {
-            if (!Content_Text_Box.Visible)
+            // Create a new DisplayPost Object
+            var currentCommentControl = new DisplayReplyTo(_panelComment)
             {
-                var expandedPostForm = new ViewPostForm(_panelPost);
-                expandedPostForm.ShowDialog();
-                expandedPostForm.Dispose();
-            }
+                Location = new Point(Location.X, Location.Y+200)
+            };
+            Controls.Add(currentCommentControl);
+            // TODO: Adjust all other comment positions when we add this
         }
     }
 }

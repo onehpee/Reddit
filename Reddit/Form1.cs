@@ -239,7 +239,7 @@ namespace Reddit
             foreach (var post in _collectivePosts)
             {
                 // Create a new DisplayPost Object
-                var currentPostControl = new DisplayPost(post)
+                var currentPostControl = new DisplayPost(post, false)
                 {
                     Location = new Point(position[0], position[1])
                 };

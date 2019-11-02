@@ -1,6 +1,6 @@
 ﻿namespace Reddit
 {
-    partial class DisplayPost
+    partial class DisplayComment
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,13 @@
             this.Title_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Score_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Comments_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Content_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Downvote_Button = new System.Windows.Forms.Button();
             this.Upvote_Button = new System.Windows.Forms.Button();
             this.Comments_Picture_Box = new System.Windows.Forms.PictureBox();
-            this.Content_Text_Box = new System.Windows.Forms.RichTextBox();
+            this.Reply_Picture_Box = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Comments_Picture_Box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reply_Picture_Box)).BeginInit();
             this.SuspendLayout();
             // 
             // Post_Info_Text_Box
@@ -83,6 +85,17 @@
             this.Comments_Text_Box.TabIndex = 0;
             this.Comments_Text_Box.Text = "";
             // 
+            // Content_Text_Box
+            // 
+            this.Content_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Content_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Content_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Content_Text_Box.Location = new System.Drawing.Point(0, 0);
+            this.Content_Text_Box.Name = "Content_Text_Box";
+            this.Content_Text_Box.Size = new System.Drawing.Size(250, 50);
+            this.Content_Text_Box.TabIndex = 0;
+            this.Content_Text_Box.Text = "";
+            // 
             // Downvote_Button
             // 
             this.Downvote_Button.BackColor = System.Drawing.Color.Transparent;
@@ -125,24 +138,25 @@
             this.Comments_Picture_Box.TabIndex = 0;
             this.Comments_Picture_Box.TabStop = false;
             // 
-            // Content_Text_Box
+            // Reply_Picture_Box
             // 
-            this.Content_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.Content_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Content_Text_Box.ForeColor = System.Drawing.Color.White;
-            this.Content_Text_Box.Location = new System.Drawing.Point(0, 0);
-            this.Content_Text_Box.Name = "Content_Text_Box";
-            this.Content_Text_Box.Size = new System.Drawing.Size(250, 50);
-            this.Content_Text_Box.TabIndex = 0;
-            this.Content_Text_Box.Text = "";
+            this.Reply_Picture_Box.ErrorImage = global::Reddit.Properties.Resources.reply_icon;
+            this.Reply_Picture_Box.Image = global::Reddit.Properties.Resources.reply_icon;
+            this.Reply_Picture_Box.InitialImage = global::Reddit.Properties.Resources.reply_icon;
+            this.Reply_Picture_Box.Location = new System.Drawing.Point(0, 0);
+            this.Reply_Picture_Box.Name = "Reply_Picture_Box";
+            this.Reply_Picture_Box.Size = new System.Drawing.Size(67, 26);
+            this.Reply_Picture_Box.TabIndex = 0;
+            this.Reply_Picture_Box.TabStop = false;
+            this.Reply_Picture_Box.Click += new System.EventHandler(this.Reply_Picture_Box_Click);
             // 
-            // DisplayPost
+            // DisplayComment
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Size = new System.Drawing.Size(350, 175);
-            this.Click += new System.EventHandler(this.DisplayPost_Click);
             ((System.ComponentModel.ISupportInitialize)(this.Comments_Picture_Box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reply_Picture_Box)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +171,6 @@
         private System.Windows.Forms.RichTextBox Comments_Text_Box;
         private System.Windows.Forms.PictureBox Comments_Picture_Box;
         private System.Windows.Forms.RichTextBox Content_Text_Box;
+        private System.Windows.Forms.PictureBox Reply_Picture_Box;
     }
 }
