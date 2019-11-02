@@ -118,6 +118,8 @@ namespace Reddit
 
             // Set Data Sources
             Subreddits_Combo_Box.DataSource = _subreddits.ToList();
+
+            
         }
 
         /// <summary>
@@ -299,7 +301,7 @@ namespace Reddit
             e.Handled = true;
                 // TODO Search functionality
 
-                foreach (var Filteredset in _subreddits.SelectMany(subreddit => subreddit.subPosts))
+                foreach (var Filteredset in _collectivePosts.Where(post => post.title.ToLower().Contains(Search_Text_Box.Text.ToLower()) || post.postContent.ToLower().Contains(Search_Text_Box.Text.ToLower())))
                     allPosts.Add(Filteredset);
 
 
@@ -311,10 +313,26 @@ namespace Reddit
 
                 
 
-                Content_Panel.Text = $@"{allPosts}{Environment.NewLine}";
+               // Content_Panel.Text = $@"{allPosts}{Environment.NewLine}";
+
+                int[] position = { 0, 50 };
+                Content_Panel.Controls.Clear();
+                foreach (var post in _collectivePosts)
+                {
+                    // Create a new DisplayPost Object
+                    var currentPostControl = new DisplayPost(post)
+                    {
+                        Location = new Point(position[0], position[1])
+                    };
+                    Content_Panel.Controls.Add(currentPostControl);
+                    position[1] += 250;
+                }
 
             }
+
+
         }
+
 
         
     } }

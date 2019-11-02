@@ -29,31 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Search_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Subreddits_Combo_Box = new System.Windows.Forms.ComboBox();
             this.Login_Button = new System.Windows.Forms.Button();
             this.Content_Panel = new System.Windows.Forms.Panel();
             this.Navbar_Group_Box = new System.Windows.Forms.GroupBox();
             this.Reddit_Picture_Box = new System.Windows.Forms.PictureBox();
+            this.Search_Text_Box = new System.Windows.Forms.TextBox();
             this.Navbar_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Search_Text_Box
-            // 
-            this.Search_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.Search_Text_Box.ForeColor = System.Drawing.Color.White;
-            this.Search_Text_Box.Location = new System.Drawing.Point(334, 26);
-            this.Search_Text_Box.Name = "Search_Text_Box";
-            this.Search_Text_Box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.Search_Text_Box.Size = new System.Drawing.Size(333, 21);
-            this.Search_Text_Box.TabIndex = 1;
-            this.Search_Text_Box.TabStop = false;
-            this.Search_Text_Box.Text = "Search Reddit";
-            this.Search_Text_Box.WordWrap = false;
-            this.Search_Text_Box.Enter += new System.EventHandler(this.Search_Text_Box_Enter);
-            this.Search_Text_Box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Search_Text_Box_KeyPress);
-            this.Search_Text_Box.Leave += new System.EventHandler(this.Search_Text_Box_Leave);
             // 
             // Subreddits_Combo_Box
             // 
@@ -64,6 +48,7 @@
             this.Subreddits_Combo_Box.Name = "Subreddits_Combo_Box";
             this.Subreddits_Combo_Box.Size = new System.Drawing.Size(206, 21);
             this.Subreddits_Combo_Box.TabIndex = 2;
+            this.Subreddits_Combo_Box.SelectedIndexChanged += new System.EventHandler(this.Subreddits_Combo_Box_SelectionChangeCommitted);
             this.Subreddits_Combo_Box.SelectionChangeCommitted += new System.EventHandler(this.Subreddits_Combo_Box_SelectionChangeCommitted);
             // 
             // Login_Button
@@ -87,9 +72,9 @@
             // Navbar_Group_Box
             // 
             this.Navbar_Group_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Navbar_Group_Box.Controls.Add(this.Search_Text_Box);
             this.Navbar_Group_Box.Controls.Add(this.Login_Button);
             this.Navbar_Group_Box.Controls.Add(this.Reddit_Picture_Box);
-            this.Navbar_Group_Box.Controls.Add(this.Search_Text_Box);
             this.Navbar_Group_Box.Controls.Add(this.Subreddits_Combo_Box);
             this.Navbar_Group_Box.Location = new System.Drawing.Point(0, -6);
             this.Navbar_Group_Box.Name = "Navbar_Group_Box";
@@ -107,6 +92,18 @@
             this.Reddit_Picture_Box.TabIndex = 0;
             this.Reddit_Picture_Box.TabStop = false;
             // 
+            // Search_Text_Box
+            // 
+            this.Search_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.Search_Text_Box.ForeColor = System.Drawing.Color.White;
+            this.Search_Text_Box.Location = new System.Drawing.Point(367, 26);
+            this.Search_Text_Box.Name = "Search_Text_Box";
+            this.Search_Text_Box.Size = new System.Drawing.Size(262, 20);
+            this.Search_Text_Box.TabIndex = 4;
+            this.Search_Text_Box.Enter += new System.EventHandler(this.Search_Text_Box_Enter);
+            this.Search_Text_Box.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Search_Text_Box_KeyPress);
+            this.Search_Text_Box.Leave += new System.EventHandler(this.Search_Text_Box_Leave);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +116,7 @@
             this.Name = "Form1";
             this.Text = "Reddit";
             this.Navbar_Group_Box.ResumeLayout(false);
+            this.Navbar_Group_Box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reddit_Picture_Box)).EndInit();
             this.ResumeLayout(false);
 
@@ -127,11 +125,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox Reddit_Picture_Box;
-        private System.Windows.Forms.RichTextBox Search_Text_Box;
         private System.Windows.Forms.ComboBox Subreddits_Combo_Box;
         private System.Windows.Forms.Button Login_Button;
         private System.Windows.Forms.Panel Content_Panel;
         private System.Windows.Forms.GroupBox Navbar_Group_Box;
+        private System.Windows.Forms.TextBox Search_Text_Box;
     }
 }
 
