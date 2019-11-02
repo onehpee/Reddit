@@ -77,6 +77,7 @@ namespace Reddit
             // 
             this.Password_Textbox.Location = new System.Drawing.Point(122, 66);
             this.Password_Textbox.Name = "Password_Textbox";
+            this.Password_Textbox.PasswordChar = '*';
             this.Password_Textbox.Size = new System.Drawing.Size(140, 20);
             this.Password_Textbox.TabIndex = 3;
             // 
@@ -90,7 +91,7 @@ namespace Reddit
             this.Log_In_Button.TabIndex = 4;
             this.Log_In_Button.Text = "Log-In";
             this.Log_In_Button.UseVisualStyleBackColor = true;
-
+            // 
             // Log_In_Form
             // 
             this.ClientSize = new System.Drawing.Size(301, 139);
