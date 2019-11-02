@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Reddit
 {
-    internal class User : IComparable
+    public class User : IComparable
     {
         private readonly int _commentScore;
         public readonly uint Id;

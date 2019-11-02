@@ -70,7 +70,7 @@ namespace Reddit
                 timeSince = $"{(int) timeSpan.TotalDays} days ago";
 
             // Set post info text and add the control
-            Post_Info_Text_Box.Text = $"{"/r/all"} * Posted by {post.authorID.ToString()} {timeSince}";
+            Post_Info_Text_Box.Text = $"{"/r/all"} * Posted by {Form1._users.FirstOrDefault(user => user.Id == post.authorID).Name} {timeSince}";
             Controls.Add(Post_Info_Text_Box);
 
             // Set the Title text and add the control

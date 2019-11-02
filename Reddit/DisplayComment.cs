@@ -28,7 +28,6 @@ namespace Reddit
             Score_Text_Box.Location = new Point(0, 30);
             Downvote_Button.Location = new Point(0, 50);
             Post_Info_Text_Box.Location = new Point(75, 0);
-            Title_Text_Box.Location = new Point(75, 25);
             Comments_Text_Box.Location = new Point(50, 150);
             Comments_Picture_Box.Location = new Point(30, 145);
             Content_Text_Box.Location = new Point(75, 75);
@@ -37,7 +36,6 @@ namespace Reddit
             // Set all Text Boxes to readonly
             Score_Text_Box.ReadOnly = true;
             Post_Info_Text_Box.ReadOnly = true;
-            Title_Text_Box.ReadOnly = true;
             Content_Text_Box.ReadOnly = true;
 
             // Add our up vote and down vote buttons
@@ -72,12 +70,8 @@ namespace Reddit
                 timeSince = $"{(int) timeSpan.TotalDays} days ago";
 
             // Set post info text and add the control
-            Post_Info_Text_Box.Text = $"Commented by {comment.authorID.ToString()} {timeSince}";
+            Post_Info_Text_Box.Text = $"Commented by {Form1._users.FirstOrDefault(user => user.Id == comment.authorID).Name} {timeSince}";
             Controls.Add(Post_Info_Text_Box);
-
-            // Set the Title text and add the control
-            Title_Text_Box.Text = comment.authorID.ToString();
-            Controls.Add(Title_Text_Box);
 
             // Set the Content text and add the control Defaulted to hidden control
             Content_Text_Box.Text = comment.Content;

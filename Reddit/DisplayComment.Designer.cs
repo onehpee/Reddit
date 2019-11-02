@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Post_Info_Text_Box = new System.Windows.Forms.RichTextBox();
-            this.Title_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Score_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Comments_Text_Box = new System.Windows.Forms.RichTextBox();
             this.Content_Text_Box = new System.Windows.Forms.RichTextBox();
@@ -51,17 +50,6 @@
             this.Post_Info_Text_Box.Size = new System.Drawing.Size(300, 23);
             this.Post_Info_Text_Box.TabIndex = 0;
             this.Post_Info_Text_Box.Text = "";
-            // 
-            // Title_Text_Box
-            // 
-            this.Title_Text_Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.Title_Text_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Title_Text_Box.ForeColor = System.Drawing.Color.White;
-            this.Title_Text_Box.Location = new System.Drawing.Point(0, 0);
-            this.Title_Text_Box.Name = "Title_Text_Box";
-            this.Title_Text_Box.Size = new System.Drawing.Size(300, 35);
-            this.Title_Text_Box.TabIndex = 0;
-            this.Title_Text_Box.Text = "";
             // 
             // Score_Text_Box
             // 
@@ -166,7 +154,6 @@
         private System.Windows.Forms.Button Upvote_Button;
         private System.Windows.Forms.Button Downvote_Button;
         private System.Windows.Forms.RichTextBox Post_Info_Text_Box;
-        private System.Windows.Forms.RichTextBox Title_Text_Box;
         private System.Windows.Forms.RichTextBox Score_Text_Box;
         private System.Windows.Forms.RichTextBox Comments_Text_Box;
         private System.Windows.Forms.PictureBox Comments_Picture_Box;
