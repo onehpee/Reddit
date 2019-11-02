@@ -68,9 +68,9 @@
             // 
             // Login_Button
             // 
-            this.Login_Button.Location = new System.Drawing.Point(911, 18);
+            this.Login_Button.Location = new System.Drawing.Point(816, 18);
             this.Login_Button.Name = "Login_Button";
-            this.Login_Button.Size = new System.Drawing.Size(68, 34);
+            this.Login_Button.Size = new System.Drawing.Size(163, 34);
             this.Login_Button.TabIndex = 3;
             this.Login_Button.Text = "Login";
             this.Login_Button.UseVisualStyleBackColor = true;
@@ -83,7 +83,6 @@
             this.Content_Panel.Name = "Content_Panel";
             this.Content_Panel.Size = new System.Drawing.Size(622, 565);
             this.Content_Panel.TabIndex = 4;
-  
             // 
             // Navbar_Group_Box
             // 

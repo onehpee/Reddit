@@ -261,12 +261,22 @@ namespace Reddit
                         var _users = new SortedSet<User>();
 
                         foreach (var name in _users)
-                            // Use linq to get a set of all user posts
+                            // Check if right info is entered in login form
                             _users.FirstOrDefault(x => Name  == _selectedUser.Name );
-
-                        if (f2.LogInFormUser == user.Name && f2.LogInFormPass == user.Password)
+                        if(f2.LogInFormUser != user.Name && f2.LogInFormPass == user.Password)
                         {
-                            Login_Button.Text = $"{f2.LogInFormUser} {user._postScore} {user.TotalScore} ";
+                            MessageBox.Show("Wrong Username");
+                            f2.ShowDialog();
+                        }
+
+                        if(f2.LogInFormUser == user.Name && f2.LogInFormPass != user.Password)
+                        {
+                            MessageBox.Show("Wrong Password");
+                            f2.ShowDialog();
+                        }
+                            if (f2.LogInFormUser == user.Name && f2.LogInFormPass == user.Password)
+                        {
+                            Login_Button.Text = $"{f2.LogInFormUser} {user.TotalScore}";
                             _authenticatedUser = _selectedUser;
                         }
                     }
@@ -282,27 +292,29 @@ namespace Reddit
 
     private void Search_Text_Box_KeyPress(object sender, KeyPressEventArgs e)
     {
-        // Content_Panel.Controls.Clear();
-        if (e.KeyChar == (char)Keys.Enter)
+            var allPosts = new SortedSet<Post>();
+            // Content_Panel.Controls.Clear();
+            if (e.KeyChar == (char)Keys.Enter)
         {
             e.Handled = true;
-            // TODO Search functionality
+                // TODO Search functionality
 
-            var FilteredSet = new SortedSet<Post>();
+                foreach (var Filteredset in _subreddits.SelectMany(subreddit => subreddit.subPosts))
+                    allPosts.Add(Filteredset);
 
-            if (Subreddits_Combo_Box.SelectedItem.ToString() == "all")
-            {
-                foreach (var subredditSubPost in _subreddits.SelectMany(subreddit => subreddit.subPosts.Where(post => post.postContent.Contains(Search_Text_Box.Text) || post.title.Contains(Search_Text_Box.Text))))
-                    FilteredSet.Add(subredditSubPost);
 
                 // Set this to default since default is our all
                 _selectedSubreddit = new Subreddit();
 
                 // Assign our container to the member
-                _collectivePosts = FilteredSet;
+                _collectivePosts = allPosts;
 
-                //  Content_Panel.Text += $@"{FilteredSet}{Environment.NewLine}";
+                
+
+                Content_Panel.Text = $@"{allPosts}{Environment.NewLine}";
+
             }
         }
-    }
-} }
+
+        
+    } }
